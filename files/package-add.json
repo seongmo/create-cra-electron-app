@@ -1,0 +1,19 @@
+{
+  "homepage": "./",
+  "main": "public/electron.js",
+  "scripts": {
+    "dev-electron": "export PORT=`free-port -p 3000`; concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:$PORT && electron .\"",
+    "electron": "electron .",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "build:dist": "yarn build && electron-builder",
+    "postinstall": "install-app-deps"
+  },
+  "build": {
+    "appId": "com.example.electron-cra",
+    "directories": {
+      "buildResources": "public"
+    },
+    "files": ["build/**/*", "node_modules/**/*"]
+  }
+}
